@@ -23,7 +23,8 @@ sort <fileToBeSort-name> <newFile-name> - sort every line on basis of first char
 diff <leftFile> <rightFile> - showing the difference with seperate colors between --left file and ++right file
 vi <file-name> - editing the file via vim editor in the terminal
 grep '<pattern/word>' <file-name> - showing the avaialblity of the pattern/word in the file
-df/df -h - showing the details about the disk an human-readable with '-h' flag
+df/df -h - showing the details about the disk in a human-readable form with '-h' flag
 ps - showing all the active processes
 vailablity, and idu - showing the details about the disk usage
 top - showing all running tasks
+free - showing the memory space about the disk in a human-readable form with '-h' flag, and in human-readable 
