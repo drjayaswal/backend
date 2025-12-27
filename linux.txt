@@ -4,3 +4,4 @@ ls - listing files in current directory
 
 pwd - showing present working directory
 touch <file-name> - creating a file with the provided name
+cat <file-name> - showing the content of file
