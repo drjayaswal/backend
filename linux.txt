@@ -37,3 +37,4 @@ who - showing all available users on the machine
 whoami - showing the current logged-in user on the machine
 date - showing current date and time
 which <software/utility> - showing the location of the provided software/utilitiy
+id - showing all available user(s), group(s), etc with comma(,) seperation
