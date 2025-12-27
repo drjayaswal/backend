@@ -3,3 +3,4 @@ This is The Linux Branch
 ls - listing files in current directory
 
 pwd - showing present working directory
+touch <file-name> - creating a file with the provided name
