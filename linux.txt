@@ -26,3 +26,4 @@ grep '<pattern/word>' <file-name> - showing the avaialblity of the pattern/word 
 df/df -h - showing the details about the disk an human-readable with '-h' flag
 ps - showing all the active processes
 vailablity, and idu - showing the details about the disk usage
+top - showing all running tasks
