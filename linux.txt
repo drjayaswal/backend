@@ -8,3 +8,6 @@ mkdir <folder-name> - creating a folder with the provided name
 rm <file-name> - remove/delete the file
 rmdir <folder-name> - remove/delete the folder
 head <file-name> - show starting line(s) of the file
+tail <file-name> - show trailing line(s) of the file
+tail -f <file-name> - show current and upcoming trailing line(s) of the file
+
