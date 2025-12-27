@@ -40,3 +40,4 @@ which <software/utility> - showing the location of the provided software/utiliti
 id - showing all available user(s), group(s), etc with comma(,) seperation
 sudo <permission-demanding-commands> - allowing the command to run with the help of 'sudo' allowance
 apt install <software/utility> - installing software/utility from locally available resource
+apt-get install <software/utility> - installing software/utility from resource available online
