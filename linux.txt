@@ -21,3 +21,4 @@ cut < -b for byte> < -c for character> <N - M range> <file-name> - cut the byte/
 <returning-command | tee <file-name> - creating a file with the content taken from the terminal output and shows it on terminal as well
 sort <fileToBeSort-name> <newFile-name> - sort every line on basis of first character of the line and stores that sorted data into the provided file
 diff <leftFile> <rightFile> - showing the difference with seperate colors between --left file and ++right file
+vi <file-name> - editing the file via vim editor in the terminal
