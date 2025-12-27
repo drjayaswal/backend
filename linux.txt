@@ -30,3 +30,4 @@ top - showing all running tasks
 free - showing the memory space about the disk in a human-readable form with '-h' flag, and in human-readable 
 kill -15 or -9 <PID> - killing the running process with PID with grace '-15' or force '-9' 
 nohup <returning-command> - saving the terminal output from returning command to a 'nohup.out' file
+vmstat - showing all details about memory including cache, buffer, etc using flags for active & inactive
