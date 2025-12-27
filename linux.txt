@@ -6,3 +6,5 @@ touch <file-name> - creating a file with the provided name
 cat <file-name> - showing the content of file
 mkdir <folder-name> - creating a folder with the provided name
 rm <file-name> - remove/delete the file
+rmdir <folder-name> - remove/delete the folder
+head <file-name> - show starting line(s) of the file
