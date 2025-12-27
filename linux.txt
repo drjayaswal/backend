@@ -33,3 +33,4 @@ nohup <returning-command> - saving the terminal output from returning command to
 vmstat - showing all details about memory including cache, buffer, etc using flags for active & inactive
 uname - showing the base of platform
 uptime - showing the activeness/login-span of the current machine
+who - showing all available users on the machine
