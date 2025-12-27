@@ -15,3 +15,4 @@ cp <file-name> <folder-name> - copy file with the provided name to the provided 
 mv <file-name> <folder-name> - copy/move file with the provided name to the provided folder and also remove the file from the source destination
 wc <file-name> - showing count of Line(s) | Word(s) | Byte(s) respectively
 <returning-command> | pbcopy - copying the terminal output to clipboard (macOS aka Darwin)
+ln -s <fileToBeLink-name> <fileToLink-name> - creates a soft-link of --leftFile with ++rightFile
