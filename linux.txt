@@ -19,3 +19,4 @@ ln -s <fileToBeLink-name> <fileToLink-name> - creates a soft-link of --leftFile 
 ln <fileToBeLink-name> <fileToLink-name> - creates a hard-link of --leftFile with ++rightFile
 cut < -b for byte> < -c for character> <N - M range> <file-name> - cut the byte/character within the range i.e. N to M from file
 <returning-command | tee <file-name> - creating a file with the content taken from the terminal output and shows it on terminal as well
+sort <fileToBeSort-name> <newFile-name> - sort every line on basis of first character of the line and stores that sorted data into the provided file
