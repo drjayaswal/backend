@@ -11,3 +11,4 @@ head <file-name> - show starting line(s) of the file
 tail <file-name> - show trailing line(s) of the file
 tail -f <file-name> - show current and upcoming trailing line(s) of the file
 less <file-name> - showing the content of file via pagination 
+cp <file-name> <folder-name> - copy file with the provided name to the provided folder
