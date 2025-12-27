@@ -32,3 +32,4 @@ kill -15 or -9 <PID> - killing the running process with PID with grace '-15' or 
 nohup <returning-command> - saving the terminal output from returning command to a 'nohup.out' file
 vmstat - showing all details about memory including cache, buffer, etc using flags for active & inactive
 uname - showing the base of platform
+uptime - showing the activeness/login-span of the current machine
