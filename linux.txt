@@ -39,3 +39,4 @@ date - showing current date and time
 which <software/utility> - showing the location of the provided software/utilitiy
 id - showing all available user(s), group(s), etc with comma(,) seperation
 sudo <permission-demanding-commands> - allowing the command to run with the help of 'sudo' allowance
+apt install <software/utility> - installing software/utility from locally available resource
