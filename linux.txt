@@ -34,3 +34,4 @@ vmstat - showing all details about memory including cache, buffer, etc using fla
 uname - showing the base of platform
 uptime - showing the activeness/login-span of the current machine
 who - showing all available users on the machine
+whoami - showing the current logged-in user on the machine
