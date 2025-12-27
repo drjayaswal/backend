@@ -16,3 +16,4 @@ mv <file-name> <folder-name> - copy/move file with the provided name to the prov
 wc <file-name> - showing count of Line(s) | Word(s) | Byte(s) respectively
 <returning-command> | pbcopy - copying the terminal output to clipboard (macOS aka Darwin)
 ln -s <fileToBeLink-name> <fileToLink-name> - creates a soft-link of --leftFile with ++rightFile
+ln <fileToBeLink-name> <fileToLink-name> - creates a hard-link of --leftFile with ++rightFile
