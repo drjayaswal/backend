@@ -2,3 +2,4 @@ This is The Linux Branch
 
 ls - listing files in current directory
 
+pwd - showing present working directory
