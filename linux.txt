@@ -48,3 +48,4 @@ passwrd <user-name> - changing password for the provided user may requies 'sudo'
 userdel <user-name> - removing the user with provided name may need 'sudo' command for permissions
 groupadd <group-name> - creating a group with provided name may requires 'sudo' command for permissions
 gpasswd <user-name> <group-name> - adding the user to the provided group may requires 'sudo' command for permissions, comes with '-a' flag for adding user(s) space seprated and '-M' flag for adding user(s) comman(,) seprated
+groupdel <group-name> - removing the provided group may requires 'sudo' command for permissions
