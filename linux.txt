@@ -45,3 +45,4 @@ apt remove <software/utility> - removing/uninstalling software/utility from mach
 useradd <user-name> - adding the user with provided name may requires 'sudo' command for permissions
 su <user-name> - logging in with the provided user may requires 'sudo' command for permissions
 passwrd <user-name> - changing password for the provided user may requies 'sudo' command for permissions
+userdel <user-name> - removing the user with provided name may need 'sudo' command for permissions
