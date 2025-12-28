@@ -62,3 +62,5 @@ Permission Patterns
 chmod <permission-pattern> <file-name> - alloting the permissions to provided file may require 'sudo' command for permissions
 chown <user-name> <file-name> - changes file owner may requires 'sudo' command for permissions
 chgrp <group-name> <file-name> - changes file group may requires 'sudo' command for permissions
+zip <fileToBeZippedIn-name> <fileToBeZip-name> - compressing the provided file into specified name
+zip -r <fileToBeZippedIn-name> <file(s)ToBeZip-name/folderToBeZip-name> - compressing the provided file(s)/folder into specified name recursively
