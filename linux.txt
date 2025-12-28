@@ -65,3 +65,4 @@ chgrp <group-name> <file-name> - changes file group may requires 'sudo' command 
 zip <fileToBeZippedIn-name> <fileToBeZip-name> - compressing the provided file into specified name
 zip -r <fileToBeZippedIn-name> <file(s)ToBeZip-name/folderToBeZip-name> - compressing the provided file(s)/folder into specified name recursively
 tar <fileToBeZippedIn-name> <file-name/folder-name> - compressing/decompressing provided file/folder to specified file with '.tar' extension, also comes with '-x' flag for extracting/decompressing, '-c' flag for compressing, '-z' flag for using gzip, '-v' flag for returning/printing terminal output, '-f' flag for providing file name
+scp -i '<.pem-file>' <sourceLocation> <destinationLocation> - copying the provided file or files( in folder via '-r' flag recursively) from source to destination using provided '.pem' with flag '-i' may requires 'sudo' command for permissions
