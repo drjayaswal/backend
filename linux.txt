@@ -61,3 +61,4 @@ Permission Patterns
 7 : rwx
 chmod <permission-pattern> <file-name> - alloting the permissions to provided file may require 'sudo' command for permissions
 chown <user-name> <file-name> - changes file owner may requires 'sudo' command for permissions
+chgrp <group-name> <file-name> - changes file group may requires 'sudo' command for permissions
