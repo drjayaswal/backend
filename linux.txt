@@ -64,3 +64,4 @@ chown <user-name> <file-name> - changes file owner may requires 'sudo' command f
 chgrp <group-name> <file-name> - changes file group may requires 'sudo' command for permissions
 zip <fileToBeZippedIn-name> <fileToBeZip-name> - compressing the provided file into specified name
 zip -r <fileToBeZippedIn-name> <file(s)ToBeZip-name/folderToBeZip-name> - compressing the provided file(s)/folder into specified name recursively
+tar <fileToBeZippedIn-name> <file-name/folder-name> - compressing/decompressing provided file/folder to specified file with '.tar' extension, also comes with '-x' flag for extracting/decompressing, '-c' flag for compressing, '-z' flag for using gzip, '-v' flag for returning/printing terminal output, '-f' flag for providing file name
