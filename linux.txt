@@ -24,8 +24,8 @@ diff <leftFile> <rightFile> - showing the difference with seperate colors betwee
 vi <file-name> - editing the file via vim editor in the terminal
 grep '<pattern/word>' <file-name> - showing the avaialblity of the pattern/word in the file
 df/df -h - showing the details about the disk in a human-readable form with '-h' flag
-ps - showing all the active processes
-vailablity, and idu - showing the details about the disk usage
+ps - showing all the active processes availablity
+du - showing the details about the disk usage
 top - showing all running tasks
 free - showing the memory space about the disk in a human-readable form with '-h' flag, and in human-readable 
 kill -15 or -9 <PID> - killing the running process with PID with grace '-15' or force '-9' 
@@ -66,3 +66,4 @@ zip <fileToBeZippedIn-name> <fileToBeZip-name> - compressing the provided file i
 zip -r <fileToBeZippedIn-name> <file(s)ToBeZip-name/folderToBeZip-name> - compressing the provided file(s)/folder into specified name recursively
 tar <fileToBeZippedIn-name> <file-name/folder-name> - compressing/decompressing provided file/folder to specified file with '.tar' extension, also comes with '-x' flag for extracting/decompressing, '-c' flag for compressing, '-z' flag for using gzip, '-v' flag for returning/printing terminal output, '-f' flag for providing file name
 scp -i '<.pem-file>' <sourceLocation> <destinationLocation> - copying the provided file or files( in folder via '-r' flag recursively) from source to destination using provided '.pem' with flag '-i' may requires 'sudo' command for permissions
+ssh -i '<.pem-file>' <remoteLocation> - connects to remote located machine
