@@ -11,3 +11,4 @@ project1 = created project1 named as java-app for image, for running "docker run
 docker attach <container-id/container-name> - attach the container terminal to host terminal, useful to observe logs in container
 project2 = created project2 named as node-app for image, for runnning "docker run -it node-app"
 docker network ls - shows all the available docker networks on the machine
+docker network create <network-name> -d <driver-name> - creates a docker network with provided driver (by '-d' flag), (drivers can be [ipvlan,macvlan,none,bridge,overlay,host,user-defined])
