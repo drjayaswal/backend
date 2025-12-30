@@ -9,3 +9,4 @@ docker start <container-id/container-name> - starts the docker container
 docker build -t <image-name> <dockerfile-location> - builds the docker image, '-t' flag for image name
 project1
 created project1 named as java-app for image for running "docker run -it java-app"
+docker attach <container-id/container-name> - attach the container terminal to host terminal, useful to observe logs in container
