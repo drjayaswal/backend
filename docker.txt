@@ -1,14 +1,19 @@
 This is The Docker Branch
+
 docker - shows the details about the docker commands and options
 docker ps - shows the details about the docker container's state (if running)
 docker pull <image-name> - pulls/downloads the specific image from docker.hub to local machine
-docker run <image-name> - runs the docker container for the specific image
+docker run <image-name> - runs the docker container for the specific image, often uses '-i' flag for interactive, '-t' flag for terminal, 'd' flag for detached mode
 docker images - shows the available images locally on the machine
 docker stop <container-id/container-name> - stops the docker container
 docker start <container-id/container-name> - starts the docker container
 docker build -t <image-name> <dockerfile-location> - builds the docker image, '-t' flag for image name
+
 project1 = created project1 named as java-app for image, for running "docker run -it java-app"
 docker attach <container-id/container-name> - attach the container terminal to host terminal, useful to observe logs in container
+
 project2 = created project2 named as node-app for image, for runnning "docker run -it node-app"
 docker network ls - shows all the available docker networks on the machine
 docker network create <network-name> -d <driver-name> - creates a docker network with provided driver (by '-d' flag), (drivers can be [ipvlan,macvlan,none,bridge,overlay,host,user-defined])
+
+project3 = created project3 named as flask-app for image, for running, firstly spin database container by "docker run -d --name <container-name> --network <network-name> -e MYSQL_ROOT_PASSWORD=<mysql-root-password> -e MYSQL_DATABASE=<mysql-database> <image-name>" and then spin server container by "docker run -d -p <host-port>:<container-port> --network <network-name> -e MYSQL_HOST=<mysql-host> -e MYSQL_USER=<mysql-user> -e MYSQL_PASSWORD=<mysql-password> -e MYSQL_DB=<mysql-database> <image-name>"
