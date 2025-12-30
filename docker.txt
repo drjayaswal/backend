@@ -1,0 +1,9 @@
+This is The Docker Branch
+docker - shows the details about the docker commands and options
+docker ps - shows the details about the docker container's state (if running)
+docker pull <image-name> - pulls/downloads the specific image from docker.hub to local machine
+docker run <image-name> - runs the docker container for the specific image
+docker images - shows the available images locally on the machine
+docker stop <container-id/container-name> - stops the docker container
+docker start <container-id/container-name> - starts the docker container
+docker build -t <image-name> <dockerfile-location> - builds the docker image, '-t' flag for image name
