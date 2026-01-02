@@ -2,3 +2,4 @@ This is The Backend Repository
 
 Linux - 50%
 Docker - 65%
+nginx - 85%
