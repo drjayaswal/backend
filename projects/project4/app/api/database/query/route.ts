@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { pool } from "../db";
 
 const mockDatabase = {
   users: [
@@ -25,7 +24,6 @@ function parseAndExecuteQuery(query: string) {
   const normalizedQuery = query.trim().toLowerCase();
 
   if (normalizedQuery.match(/^select \* from users;?$/)) {
-    const users[] = 
     return {
       success: true,
       data: mockDatabase.users,
