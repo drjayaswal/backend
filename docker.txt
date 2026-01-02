@@ -19,3 +19,4 @@ docker network create <network-name> -d <driver-name> - creates a docker network
 project3 = created project3 named as flask-app for image, for running, firstly spin database container by "docker run -d --name <container-name> --network <network-name> -e MYSQL_ROOT_PASSWORD=<mysql-root-password> -e MYSQL_DATABASE=<mysql-database> <image-name>" and then spin server container by "docker run -d -p <host-port>:<container-port> --network <network-name> -e MYSQL_HOST=<mysql-host> -e MYSQL_USER=<mysql-user> -e MYSQL_PASSWORD=<mysql-password> -e MYSQL_DB=<mysql-database> <image-name>"
 docker volume ls - shows all available volumes onto the machine
 docker volume create <volume-name> - creates a docker volume with the provided name
+docker run -v <volume-name>:var/lib/mysql <image-name> - while running the database container it will bind the container's database(s) to host's database(s) to persist the data after container lifecycle
