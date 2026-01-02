@@ -24,3 +24,4 @@ COMPOSE.YAML - runs an application in an isolated environment with single non-re
 docker compose up - runs whole compose scripts for application includes whole environment, networks, healthcheck, lifecycle of containers
 docker compose down - stops whole compose scripts for application includes whole environment, networks, healthcheck, lifecycle of containers
 docker tag <image-name>:latest username/<hub-image-name>:latest - tags a local image for remote hub with provided name
+docker push username/<hub-image-name>:latest - pushes the specific local image for remote hub with provided name
