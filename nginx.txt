@@ -18,4 +18,29 @@ nginx.conf :
                 
                 use epoll;
             }
-    
+    http {} - the container for all web-related traffic, managing how data is packaged, compressed, and routed to specific sites
+        include mime.types - maps file extensions to correct content types so browsers can render them
+        default_type - sets the fallback for unknown files (usually a download action)
+        sendfile - uses kernel-level memory management to send files faster without copying buffers
+        keepalive_timeout - keeps connections open to allow multiple downloads without a new handshake
+        gzip - compresses text-based files on the fly to save bandwidth and load faster
+        access_log - records every visitor's request (IP, URL, status) to a specific file for debugging
+        upstream - creates a named cluster of servers that Nginx can distribute traffic across
+        include - imports modular site-specific files from other directories to keep the main file clean
+        example:
+            http {
+                include       mime.types;
+                default_type  application/octet-stream;
+                sendfile      on;
+                keepalive_timeout  65;
+                gzip          on;
+
+                access_log    /var/log/nginx/access.log;
+
+                upstream my_app_cluster {
+                    server 10.0.0.1:8080;
+                    server 10.0.0.2:8080;
+                }
+
+                include /etc/nginx/sites-enabled/*;
+            }
