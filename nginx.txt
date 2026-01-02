@@ -4,3 +4,18 @@ apt update - it updates the machine to install the nginx, mostly Linux via ubunt
 apt-get install nginx - it downloads and installs the nginx onto the machine
 cd etc/nginx && vim nginx.conf - navigate to the downloaded nginx's directory and updates the nginx code
 nginx -s reload - reloads the nginx server, may requires 'sudo' command for permissions
+
+nginx.conf :
+    events {} - deals with how the server physically handles the network traffic at a low level
+        worker_connections - handle 4096 connections per worker
+        multi_accept - grab all waiting connections immediately
+        use epoll - use the most efficient method for Linux
+        example:
+            events {
+                worker_connections 4096;
+                
+                multi_accept on;
+                
+                use epoll;
+            }
+    
