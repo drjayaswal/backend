@@ -1,1 +1,3 @@
 This is The NGINX Branch
+
+apt update - it updates the machine to install the nginx, mostly Linux via ubuntu
