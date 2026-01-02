@@ -1,3 +1,4 @@
 This is The NGINX Branch
 
 apt update - it updates the machine to install the nginx, mostly Linux via ubuntu
+apt-get install nginx - it downloads and installs the nginx onto the machine
