@@ -22,3 +22,4 @@ docker volume create <volume-name> - creates a docker volume with the provided n
 docker run -v <volume-name>:var/lib/mysql <image-name> - while running the database container it will bind the container's database(s) to host's database(s) to persist the data after container lifecycle
 COMPOSE.YAML - runs an application in an isolated environment with single non-redundant flow
 docker compose up - runs whole compose scripts for application includes whole environment, networks, healthcheck, lifecycle of containers
+docker compose down - stops whole compose scripts for application includes whole environment, networks, healthcheck, lifecycle of containers
