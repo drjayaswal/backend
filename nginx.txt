@@ -18,6 +18,7 @@ nginx.conf :
                 
                 use epoll;
             }
+
     http {} - the container for all web-related traffic, managing how data is packaged, compressed, and routed to specific sites
         include mime.types - maps file extensions to correct content types so browsers can render them
         default_type - sets the fallback for unknown files (usually a download action)
@@ -30,9 +31,13 @@ nginx.conf :
         example:
             http {
                 include       mime.types;
+
                 default_type  application/octet-stream;
+
                 sendfile      on;
+
                 keepalive_timeout  65;
+
                 gzip          on;
 
                 access_log    /var/log/nginx/access.log;
@@ -43,4 +48,20 @@ nginx.conf :
                 }
 
                 include /etc/nginx/sites-enabled/*;
+            }
+
+    server {} - handle requests for specific domains or IP addresses and sets global rules for all web traffic in the http context
+        listen - listens on given port
+        server_name - name specificed directive for distinguish between multi used ports
+        root - shows the location of the website code/files
+        return - shows the special NGINX code while the closing the connections
+        example:
+            server {
+                listen 80;
+                
+                server_name abc.com www.abc.com;
+                
+                root /var/www/html;
+                
+                return 301 https://$server_name$request_uri;
             }
