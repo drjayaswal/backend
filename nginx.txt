@@ -65,30 +65,125 @@ nginx.conf:
             }
 
     on linux:
+        $aws/elasticcomputecloud(ec2)
+            # Launch a new EC2 instance to host your application
+            click "Launch instance"
+            
+            # Provide a descriptive name for easy identification
+            enter <instance-name>
+            
+            # Choose Ubuntu as the operating system for compatibility
+            select "Ubuntu" image
+            
+            # Generate a private key file for secure SSH access to the instance
+            generate <key.pem> private key
+            
+            # Enable web traffic by allowing HTTP (port 80) and HTTPS (port 443) connections
+            check & allow checkboxes "Allow HTTPS traffic from the internet" & "Allow HTTP traffic from the internet"
+            
+            # Create and start the EC2 instance
+            click "Launch instance"
+
+        # Optional: Assign a static IP address if you need consistent public access
+        (if needs unique IP address for public traffic)
+        $aws/elasticipaddresses
+            # Allocate a new static IP address from AWS pool
+            click "Allocate Elastic IP Address" > "Allocate"
+            
+            # Choose the IP address you want to associate
+            select <required-ip-address>
+            
+            # Begin the association process
+            click "Actions" > "Associate Elastic IP Address"
+            
+            # Link the IP address to your specific EC2 instance
+            select <required-instance>
+            
+            # Complete the IP address association
+            click "Associate"
+
+        # Optional: Open additional ports if your application uses non-standard ports
+        (if unblocking the internal ports for public traffic)
+        $aws/elasticcomputecloud
+            # Navigate to your specific instance
+            select <required-instance>
+            
+            # Access the security group settings that control network access
+            click "Security" > "Security Groups"
+            
+            # Add a new inbound rule for your application's port
+            click "Add Rule" for <required-internal-port> 
+            
+            # Apply the new security rule
+            click "Save Rule"
+
+        # Connect to your Ubuntu instance and install required software via SSH or RDS utility
         $ubuntu/
-            sudo apt-get update                                           # Update package lists
-            sudo apt-get install vim                                      # Install vim text editor
-            sudo apt-get install nginx                                    # Install nginx web server
-            sudo apt-get install docker.iso                               # Install Docker
-            -- sudo usermod -aG docker $USER --                           # Add user to docker group (optional)
-            git clone https://github.com/drjayaswal/backend-practise.git  # Clone the backend project repository
-            cd backend-practise                                           # Navigate to project directory
-        $backend-practise/
-            -- docker build -t app:latest . --                            # Build Docker image locally (optional)
-            docker pull dhruv2k3/app:latest                               # Pull pre-built Docker image from registry
-            docker run -d -p 3000:3000 app:latest                         # Run container in background, map port 3000
+            # Update the package manager's list of available software
+            sudo apt-get update                                           
+            
+            # Install vim text editor for configuration file editing
+            sudo apt-get install vim                                      
+            
+            # Install nginx web server to handle incoming requests and proxy traffic
+            sudo apt-get install nginx                                    
+            
+            # Install Docker for containerized application deployment
+            sudo apt-get install docker.iso                               
+            
+            # Optional: Configure Docker permissions for current user
+            -- docker login --                           
+            -- sudo usermod -aG docker $USER --                           
+            
+            # Download your application source code from GitHub repository
+            git clone https://github.com/<username>/app.git                 
+            
+            # Navigate into the downloaded project directory
+            cd app/                                           
+
+        # Deploy your application using Docker containers
+        $app/
+            # Optional: Build Docker image from local source code
+            -- docker build -t <image-name>:latest . --                            
+            
+            # Download pre-built application image from Docker registry
+            docker pull <username>/<image-name>:latest                               
+            
+            # Start the application container in background mode, mapping ports for external access
+            docker run -d -p <desired-machine-port>:<assigned-container-port> app:latest                         
+
+        # Configure nginx to proxy requests to your Docker container
         $/etc/nginx/sites-enabled/
-            sudo vim default                                              # Edit nginx default site configuration
+            # Edit the default nginx site configuration file
+            sudo vim default                                              
                 -- or --
-            echo -e "server {                                             # Create nginx server block configuration
-                        location / {                                      # Handle all requests to root path
-                            proxy_pass http://127.0.0.1:3000;             # Forward requests to Docker container
-                            proxy_http_version 1.1;                       # Use HTTP/1.1 for upstream connection
-                            proxy_set_header Upgrade $http_upgrade;       # Pass WebSocket upgrade headers
-                            proxy_set_header Connection 'upgrade';        # Pass connection upgrade headers
-                            proxy_set_header Host $host;                  # Pass original host header
-                            proxy_cache_bypass $http_upgrade;             # Bypass cache for WebSocket connections
+            # Alternatively, append nginx configuration directly to the file
+            echo -e "server {                                             
+                        # Define how nginx handles incoming requests
+                        location / {                                      
+                            # Forward all root path requests to Docker container
+                            proxy_pass http://127.0.0.1:<assigned-machine-port>;             
+                            
+                            # Forward API requests to backend Docker container
+                            proxy_pass http://127.0.0.1:<assigned-machine-port>/api;             
+                            
+                            # Use HTTP/1.1 protocol for better performance with upstream servers
+                            proxy_http_version 1.1;                       
+                            
+                            # Enable WebSocket support by passing upgrade headers
+                            proxy_set_header Upgrade $http_upgrade;       
+                            
+                            # Maintain WebSocket connection state
+                            proxy_set_header Connection 'upgrade';        
+                            
+                            # Preserve original host information for the backend
+                            proxy_set_header Host $host;                  
+                            # Disable caching for WebSocket connections
+                            proxy_cache_bypass $http_upgrade;             
                         }
-                    }" >> default                                         # Append configuration to default file
+                    }" >> default                                         
+
+        # Test the complete setup to ensure everything works correctly
         $ubuntu
-            curl -L http://127.0.0.1:3000                                 # Test the application through nginx proxy
+            # Verify that your application is accessible through nginx proxy
+            curl -L http://127.0.0.1:<assigned-machine-port>                                 
