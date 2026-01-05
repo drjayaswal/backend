@@ -1,5 +1,5 @@
 This is The Backend Repository
 
-Linux - 50%
-Docker - 65%
+Linux - 70%
+Docker - 70%
 nginx - 85%
