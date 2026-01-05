@@ -64,31 +64,31 @@ nginx.conf:
                 return 301 https://$server_name$request_uri;
             }
 
-nginx project:
     on linux:
         $ubuntu/
-            sudo apt-get update
-            sudo apt-get install vim
-            sudo apt-get install nginx
-            sudo apt-get install docker.iso
-            -- sudo usermod -aG docker $USER --
-            git clone https://github.com/drjayaswal/backend-practise
-            cd backend-practise
+            sudo apt-get update                                           # Update package lists
+            sudo apt-get install vim                                      # Install vim text editor
+            sudo apt-get install nginx                                    # Install nginx web server
+            sudo apt-get install docker.iso                               # Install Docker
+            -- sudo usermod -aG docker $USER --                           # Add user to docker group (optional)
+            git clone https://github.com/drjayaswal/backend-practise.git  # Clone the backend project repository
+            cd backend-practise                                           # Navigate to project directory
         $backend-practise/
-            docker build -t app:latest .
-            docker run -d -p 3000:3000 app:latest
+            -- docker build -t app:latest . --                            # Build Docker image locally (optional)
+            docker pull dhruv2k3/app:latest                               # Pull pre-built Docker image from registry
+            docker run -d -p 3000:3000 app:latest                         # Run container in background, map port 3000
         $/etc/nginx/sites-enabled/
-            sudo vim default
+            sudo vim default                                              # Edit nginx default site configuration
                 -- or --
-            echo -e "server {
-                        location / {
-                            proxy_pass http://127.0.0.1:3000;
-                            proxy_http_version 1.1;
-                            proxy_set_header Upgrade $http_upgrade;
-                            proxy_set_header Connection 'upgrade';
-                            proxy_set_header Host $host;
-                            proxy_cache_bypass $http_upgrade;
+            echo -e "server {                                             # Create nginx server block configuration
+                        location / {                                      # Handle all requests to root path
+                            proxy_pass http://127.0.0.1:3000;             # Forward requests to Docker container
+                            proxy_http_version 1.1;                       # Use HTTP/1.1 for upstream connection
+                            proxy_set_header Upgrade $http_upgrade;       # Pass WebSocket upgrade headers
+                            proxy_set_header Connection 'upgrade';        # Pass connection upgrade headers
+                            proxy_set_header Host $host;                  # Pass original host header
+                            proxy_cache_bypass $http_upgrade;             # Bypass cache for WebSocket connections
                         }
-                    }" >> default
+                    }" >> default                                         # Append configuration to default file
         $ubuntu
-            curl -L http://127.0.0.1:3000
+            curl -L http://127.0.0.1:3000                                 # Test the application through nginx proxy
